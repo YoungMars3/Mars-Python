@@ -1,3 +1,11 @@
+def classify_number(x, sum_of_factors):
+    if sum_of_factors == x:
+        return "perfect"
+    elif sum_of_factors < x:
+        return "deficient"
+    else:
+        return "abundant"
+
 def print_factors_and_sum(x):
     print("The factors of", x, "are:")
     factors = []
@@ -9,6 +17,8 @@ def print_factors_and_sum(x):
     if len(factors) > 0:
         sum_of_factors = sum(factors)
         print("The sum of factors is:", sum_of_factors)
+        classification = classify_number(x, sum_of_factors)
+        print(f"The number is {classification}.")
     else:
         print("There are no factors to calculate the sum.")
 
