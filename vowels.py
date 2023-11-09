@@ -1,27 +1,21 @@
-def clean_word(word):
-    return word.strip().lower()
-
-def has_vowels_in_order(word):
-    vowels = "aeiou"
-    previous_vowel_index = -1
-
-    for char in word:
-        if char in vowels:
-            vowel_index = vowels.index(char)
-            if vowel_index <= previous_vowel_index:
-                return False
-            previous_vowel_index = vowel_index
-
-    return True
-
+# Open the file
 with open("dictionary.txt", "r") as data_file:
+
+    def clean_word(word):
+        """Return word in lowercase stripped of whitespace."""
+        return word.strip().lower()
+
+    def get_vowels_in_word(word):
+        """Return vowels in string word, including repeats."""
+        vowel_str = "aeiou"
+        vowels_in_word = [char for char in word if char in vowel_str]
+        return ''.join(vowels_in_word)
+
+    # Main program
     print("Find words containing vowels 'aeiou' in that order:")
     for word in data_file:
         word = clean_word(word)
-        print(f"Checking word: {word}")
-        if len(word) <= 6:
-            print(f"Skipping short word: {word}")
-            continue
-        if has_vowels_in_order(word):
-            print(f"Found word: {word}")
-#the code writen for this didnt work so i modified it and now it works
+        vowel_str = get_vowels_in_word(word) 
+        if vowel_str == 'aeiou':
+            print(word)
+        
