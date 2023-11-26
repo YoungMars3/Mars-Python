@@ -1,0 +1,114 @@
+/* General Styles */
+body, h1, h2, h3, h4, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #2c3e50;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar .nav-links a, .navbar .user-actions a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.navbar .search-bar {
+    display: flex;
+}
+
+.navbar .search-bar input {
+    padding: 5px;
+}
+
+.navbar .search-bar button {
+    padding: 5px;
+    background-color: #e74c3c;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Promo Banner */
+.promo-banner {
+    background-color: #8e44ad;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Book Listing Styles */
+.book-listing {
+    padding: 20px;
+    background-color: #ecf0f1;
+    text-align: center;
+}
+
+.book-listing .books {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.book-listing .book {
+    border: 1px solid #bdc3c7;
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+.book-listing .book img {
+    max-width: 100%;
+    height: auto;
+}
+
+.book-listing .title {
+    font-size: 18px;
+    color: #34495e;
+}
+
+.book-listing .author {
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.book-listing .price {
+    font-size: 16px;
+    color: #27ae60;
+}
+
+.book-listing .add-to-cart {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
