@@ -1,0 +1,30 @@
+1984,Novel,55,100
+Anxious People,Contemporary Fiction,30,28
+Enjoy Your Life,Religion,10,6
+Golden Words,Religion,71,2
+Great Expectations,Bildungsroman,20,46
+Gulliver's Travels,Science Fiction,22,3
+Hamlet,Tragedy,73,21
+Invisible Man,Bildungsroman,33,5
+King Lear,Tragedy,17,28
+Pride and Prejudice,Novel of manners,82,74
+Spare,Memoir,23,2
+The Adventures of Huckleberry Finn,Picaresque,44,5
+The Arabian Nights,Folk Tales,31,3
+The Castle,Allegorical Novel,23,34
+The Great Gatsby,Social Satire,70,72
+The Guest List,Psychological Thriller,50,12
+The Heaven & Earth Grocery Store,Historical Fiction,35,9
+The Hobbit,Fantasy,81,1
+The Idiot,Philosophy,32,12
+The Invisible Life of Addie Larue,Historical Fiction,30,78
+The Last Thing He Told Me,Mystery Thriller,20,4
+The Midnight Library,Science Fiction,30,81
+The Odyssey, Epic Poem,34,55
+The Quran and Modern Science,Religion,12,7
+The Road to Mecca,Travelogue,26,4
+The Sealed Nectar,Biography,57,2
+The Silent Patient,Mystery Thriller,15,23
+To Kill a Mockingbird,Young Adult,20,44
+To the Lighthouse,Stream of Consciousness,65,22
+War and Peace,Historical Novel,34,54
