@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+    <h2>Checkout</h2>
+    <form action="{{ url_for('process_payment') }}" method="post" id="payment-form">
+        
+        <h3>Select Payment Method:</h3>
+        <div>
+            <input type="radio" id="debit_card" name="payment_method" value="debit_card">
+            <label for="debit_card">
+                <img src="https://e7.pngegg.com/pngimages/363/177/png-clipart-visa-mastercard-logo-visa-mastercard-computer-icons-visa-text-payment.png" alt="Debit Card" style="width:100px;">
+            </label>
+        </div>
+        <div>
+            <input type="radio" id="tng_ewallet" name="payment_method" value="tng_ewallet">
+            <label for="tng_ewallet">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Touch_%27n_Go_eWallet_logo.svg/1200px-Touch_%27n_Go_eWallet_logo.svg.png" alt="TnG eWallet" style="width:100px;">
+            </label>
+        </div>
+        <div>
+            <input type="radio" id="fpx" name="payment_method" value="fpx">
+            <label for="fpx">
+                <img src="https://vectorise.net/logo/wp-content/uploads/2019/09/Logo-FPX.png" alt="FPX" style="width:100px;">
+            </label>
+        </div>
+        
+        <button type="submit" id="pay-now-button">Pay Now</button>
+    </form>
+
+    <!-- Loading icon (hidden by default) -->
+    <div id="loading" class="lds-roller" style="display: none;">
+        <div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div>
+    </div>
+
+    <!-- JavaScript to display the loading icon on form submission -->
+    <script>
+        document.getElementById('payment-form').onsubmit = function() {
+            document.getElementById('loading').style.display = 'inline-block';
+        };
+    </script>
+{% endblock %}

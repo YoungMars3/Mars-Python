@@ -13,7 +13,7 @@
             <nav>
                 <ul>
                     <a href="{{ url_for('index') }}"><img src="https://as1.ftcdn.net/jpg/05/05/30/96/160_F_505309624_7mvvbPkpLyCWHhbsKkW9Dcnj2vqGfKgI.png" alt="Home" style="width: 50px; height: 50px;"></a>
-                    <a href="{{ url_for('cart') }}">
+                    <a href="{{ url_for('show_cart') }}">
                         <img src="https://as1.ftcdn.net/jpg/03/30/45/76/160_F_330457600_gd0dmD9akOHwzTQqbASXruDeggxHnxgJ.png" alt="Cart" style="width: 50px; height: 50px;">
                         {% if session['cart'] %}
                             <span class="cart-count">{{ session['cart']|length }}</span>
@@ -31,9 +31,9 @@
                     
                 </ul>
                 <form action="{{ url_for('search') }}" method="get">
-                <input type="text" name="query" placeholder="Search for books...">
+                <input type="text" id= "searchBar" name="query" placeholder="Search for books...">
                 <button type="submit">
-                    <img src="https://as1.ftcdn.net/jpg/05/11/41/34/160_F_511413439_NTMyP1Y3pFxwkgM7z0CP1zE2xtUEgaVV.png" alt="Search" style="width: 50px; height: 50px;">
+                    <img src="https://as1.ftcdn.net/jpg/05/11/41/34/160_F_511413439_NTMyP1Y3pFxwkgM7z0CP1zE2xtUEgaVV.png" alt="Search" style="width: 20px; height: 20px;">
                 </button>
                 </form>
 

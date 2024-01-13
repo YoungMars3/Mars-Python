@@ -28,6 +28,7 @@ class User(db.Model, UserMixin):
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
     
 
 # Book catalog with IDs added
@@ -44,6 +45,13 @@ book_catalog = [
     {'id': 10, 'title': 'King Lear', 'author': 'William Shakespeare', 'genre': 'Tragedy', 'price': '9.99', 'cover': 'https://i.postimg.cc/LX72Gr9c/king-lear.jpg'},
     {'id': 11, 'title': 'Pride and Prejudice', 'author': 'Jane Austen', 'genre': 'Classic', 'price': '12.99', 'cover': 'https://i.postimg.cc/Hs1Vxymf/pride-and-prejudice.jpg'},
 ]
+
+def get_book_details(book_id):
+    # Convert book_id to an integer for a consistent comparison
+    book_id = int(book_id)
+    # Find the book in the book_catalog using the book_id
+    book = next((book for book in book_catalog if book['id'] == book_id), None)
+    return book
 
 
 @app.route('/')
@@ -64,30 +72,49 @@ def search():
     return render_template('search.html', query=query, results=results)
 
 # Add to cart route
+# Add to cart route
 @app.route('/add_to_cart/<int:book_id>')
 def add_to_cart(book_id):
     if 'cart' not in session:
-        session['cart'] = []
-    # Assuming book_id is unique for each book
-    session['cart'].append(book_id)  # Just store book_id to keep it simple
-    session.modified = True  # Let Flask know that we've modified the session
-    flash('Item added to cart.', 'success')
-    return redirect(url_for('index'))
+        session['cart'] = {}
+    cart = session['cart']
+    book_id_str = str(book_id)  # Convert book ID to string
+    cart[book_id_str] = cart.get(book_id_str, 0) + 1  # Use string keys
+    session['cart'] = cart
+    session.modified = True
+    
+    # Redirect to the referrer page; if it's None, redirect to index
+    return redirect(request.referrer or url_for('index'))
 
-# Remove from cart route
+#Remove from cart route
 @app.route('/remove_from_cart/<int:book_id>')
 def remove_from_cart(book_id):
-    # This assumes 'cart' session is a list of dictionaries with 'id' as a key
-    session['cart'] = [book for book in session.get('cart', []) if book['id'] != book_id]
+    cart = session.get('cart', {})
+    cart.pop(str(book_id), None)  # Use string keys
+    session['cart'] = cart
     session.modified = True
-    flash('Item removed from cart.', 'info')
-    return redirect(url_for('cart'))
+    return redirect(url_for('show_cart'))
 
+@app.route('/remove_one_from_cart/<int:book_id>')
+def remove_one_from_cart(book_id):
+    cart = session.get('cart', {})
+    book_id_str = str(book_id)  # Convert book ID to string
+    if cart.get(book_id_str, 0) > 1:
+        cart[book_id_str] -= 1
+    else:
+        cart.pop(book_id_str, None)
+    session['cart'] = cart
+    session.modified = True
+    return redirect(url_for('show_cart'))
 
-# Cart route
-@app.route('/cart', methods=['GET', 'POST'])
-def cart():
-    return render_template('cart.html', cart=session.get('cart', []))
+# Show cart route
+@app.route('/cart')
+def show_cart():
+    cart_book_ids = session.get('cart', {})
+    cart_books = {book_id: {'details': get_book_details(book_id), 'quantity': quantity}
+                  for book_id, quantity in cart_book_ids.items()}
+    return render_template('cart.html', cart=cart_books)
+
 
 # Registration route
 @app.route('/register', methods=['GET', 'POST'])
@@ -140,6 +167,35 @@ def purchase():
     flash('Purchase complete!')
     session.pop('cart', None)  # Clear the cart
     return redirect(url_for('index'))
+
+@app.route('/checkout')
+@login_required  # Assuming the user must be logged in to checkout
+def checkout():
+    # You can include any other information needed for the checkout process here
+    return render_template('checkout.html')
+
+@app.route('/process_payment', methods=['POST'])
+@login_required
+def process_payment():
+    payment_method = request.form.get('payment_method')
+
+    # You would have your payment processing logic here
+    # For now, we'll assume the payment is always successful
+
+    # Clear the cart here since payment is successful
+    session.pop('cart', None)
+
+    # Instead of redirecting immediately, render the payment_success template
+    return render_template('payment_success.html')
+
+
+    # If payment is successful:
+    flash('Payment successful!', 'success')
+    # Clear the cart here if payment is successful
+    session.pop('cart', None)
+    # Redirect to a confirmation page or back to the cart
+    return redirect(url_for('index'))  # Change 'index' to your confirmation route if you have one
+
 
 if __name__ == '__main__':
     with app.app_context():

@@ -6,18 +6,25 @@
     <h2>Your Shopping Cart</h2>
     {% if cart %}
         <div class="books">
-            {% for book in cart %}
+            {% for book_id, book_info in cart.items() %}
                 <div class="book">
-                    <img src="{{ book.cover }}" alt="{{ book.title }}">
-                    <h3>{{ book.title }}</h3>
-                    <p>Author: {{ book.author }}</p>
-                    <p>Price: ${{ book.price }}</p>
-                    <a href="{{ url_for('remove_from_cart', book_id=book['id']) }}">
-                        <img src="https://as1.ftcdn.net/jpg/05/98/80/10/160_F_598801090_FQd7M3KmKhcTg28znERuuRzdS07ONK6T.png" alt="Remove from cart" style="width: 50px; height: 50px;">
-                    </a>
+                    <img src="{{ book_info.details.cover }}" alt="{{ book_info.details.title }}">
+                    <h3>{{ book_info.details.title }}</h3>
+                    <p>Author: {{ book_info.details.author }}</p>
+                    <p>Price: ${{ book_info.details.price }}</p>
+                    <p>Quantity: {{ book_info.quantity }}</p>
+                    <div class="cart-buttons">
+                        <a href="{{ url_for('add_to_cart', book_id=book_id) }}">+</a>
+                        {% if book_info.quantity > 1 %}
+                            <a href="{{ url_for('remove_one_from_cart', book_id=book_id) }}">-</a>
+                        {% endif %}
+                        <a href="{{ url_for('remove_from_cart', book_id=book_id) }}">Remove</a>
+                    </div>
                 </div>
             {% endfor %}
         </div>
+        <!-- Update this link to direct to the checkout route -->
+        <a href="{{ url_for('checkout') }}" class="btn btn-primary">Proceed to Checkout</a>
     {% else %}
         <p>Your cart is empty.</p>
     {% endif %}

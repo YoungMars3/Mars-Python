@@ -10,8 +10,8 @@
                 <img src="{{ book.cover }}" alt="{{ book.title }}">
                 <h3>{{ book.title }}</h3>
                 <p>Author: {{ book.author }}</p>
-                <p>Price: ${{ book.price }}</p>
-                <a href="{{ url_for('add_to_cart', book_id=book.id) }}"><img src="https://as1.ftcdn.net/jpg/05/98/80/10/160_F_598801080_FtSsT9XaDJvCJGdKWafNpy9pE4obutxY.png" alt="Add to Cart"></a>
+                <p>Price: RM {{ book.price }}</p>
+                <a href="{{ url_for('add_to_cart', book_id=book.id) }}"><img src="https://as1.ftcdn.net/jpg/05/98/80/10/160_F_598801080_FtSsT9XaDJvCJGdKWafNpy9pE4obutxY.png" alt="Add to Cart" style="width: 50px; height: 50px;"></a>
             </div>
         {% endfor %}
     </div>
