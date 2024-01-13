@@ -2,39 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Online Bookstore{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}BookHeaven{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
     {% block head %}{% endblock %}
 </head>
 <body>
     <header>
         <div class="container">
-            <h1><a href="{{ url_for('index') }}">Online Bookstore</a></h1>
+            <h1><a href="{{ url_for('index') }}">BookHeaven</a></h1>
             <nav>
                 <ul>
-                    <a href="{{ url_for('index') }}"><img src="https://as1.ftcdn.net/jpg/05/05/30/96/160_F_505309624_7mvvbPkpLyCWHhbsKkW9Dcnj2vqGfKgI.png" alt="Home" style="width: 50px; height: 50px;"></a>
+                    <a href="{{ url_for('index') }}"><img src="https://as1.ftcdn.net/jpg/05/05/30/96/160_F_505309624_7mvvbPkpLyCWHhbsKkW9Dcnj2vqGfKgI.png" alt="Home" class="home-btn" style="width: 50px; height: 50px;"></a>
+                    
+                    {% if current_user.is_authenticated %}
+                      <a href="{{ url_for('logout') }}"><img src="https://as1.ftcdn.net/jpg/02/27/38/98/160_F_227389862_0enphNVuxfD3MAHVpKy4aasO3WX0H528.png" alt="Logout" class="logout-btn" style="width: 50px; height: 50px;"></a>
+                        <p>Welcome, {{ current_user.email }}!</p>
+                    {% else %}
+                    <a href="{{ url_for('login') }}"><img src="https://as2.ftcdn.net/jpg/05/12/69/33/160_F_512693361_CdfvdWksxnTtPebMQOITDvn7Wd9uFQR5.png" alt="Login" class="login-btn" style="width: 50px; height: 50px;"></a>
+                        <a href="{{ url_for('register') }}"><img src="https://as2.ftcdn.net/jpg/05/75/21/29/160_F_575212987_2XUbFpjAVSgx457aHlbQW9XaosYkiwZz.png" alt="Register" class="register-btn" style="width: 50px; height: 50px;"></a>
+
+                    {% endif %}
                     <a href="{{ url_for('show_cart') }}">
-                        <img src="https://as1.ftcdn.net/jpg/03/30/45/76/160_F_330457600_gd0dmD9akOHwzTQqbASXruDeggxHnxgJ.png" alt="Cart" style="width: 50px; height: 50px;">
+                        <img src="https://as1.ftcdn.net/jpg/03/30/45/76/160_F_330457600_gd0dmD9akOHwzTQqbASXruDeggxHnxgJ.png" alt="Cart" class="show-cart-btn" style="width: 50px; height: 50px;">
                         {% if session['cart'] %}
                             <span class="cart-count">{{ session['cart']|length }}</span>
                         {% endif %}
                     </a>
                     
-                    {% if current_user.is_authenticated %}
-                      <a href="{{ url_for('logout') }}"><img src="https://as1.ftcdn.net/jpg/02/27/38/98/160_F_227389862_0enphNVuxfD3MAHVpKy4aasO3WX0H528.png" alt="Logout" style="width: 50px; height: 50px;"></a>
-                        <p>Welcome, {{ current_user.email }}!</p>
-                    {% else %}
-                    <a href="{{ url_for('login') }}"><img src="https://as2.ftcdn.net/jpg/05/12/69/33/160_F_512693361_CdfvdWksxnTtPebMQOITDvn7Wd9uFQR5.png" alt="Login" style="width: 50px; height: 50px;"></a>
-                        <a href="{{ url_for('register') }}"><img src="https://as2.ftcdn.net/jpg/05/75/21/29/160_F_575212987_2XUbFpjAVSgx457aHlbQW9XaosYkiwZz.png" alt="Register" style="width: 50px; height: 50px;"></a>
-
-                    {% endif %}
-                    
                 </ul>
                 <form action="{{ url_for('search') }}" method="get">
-                <input type="text" id= "searchBar" name="query" placeholder="Search for books...">
-                <button type="submit">
-                    <img src="https://as1.ftcdn.net/jpg/05/11/41/34/160_F_511413439_NTMyP1Y3pFxwkgM7z0CP1zE2xtUEgaVV.png" alt="Search" style="width: 20px; height: 20px;">
-                </button>
+                <div class="search-container">
+                    <input type="text" id="searchBar" name="query" placeholder="Search for books...">
+                </div>
+                
+                <button type="submit" class="search-btn">Search</button>
                 </form>
 
             </nav>
@@ -55,7 +57,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Online Bookstore</p>
+            <p>&copy; 2024 Group 9 Book Store</p>
         </div>
     </footer>
 

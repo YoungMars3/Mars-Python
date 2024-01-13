@@ -11,7 +11,8 @@
                     <img src="{{ book_info.details.cover }}" alt="{{ book_info.details.title }}">
                     <h3>{{ book_info.details.title }}</h3>
                     <p>Author: {{ book_info.details.author }}</p>
-                    <p>Price: ${{ book_info.details.price }}</p>
+                    <p>Price: RM {{ book_info.details.price }}</p>
+                    <p>Genre: {{ book_info.details.genre }}</p>
                     <p>Quantity: {{ book_info.quantity }}</p>
                     <div class="cart-buttons">
                         <a href="{{ url_for('add_to_cart', book_id=book_id) }}">+</a>

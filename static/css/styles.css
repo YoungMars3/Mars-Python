@@ -1,5 +1,5 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
@@ -12,18 +12,18 @@ body {
 }
 
 header {
-    background: #50b3a2;
+    background: #975c34;
     color: white;
     padding-top: 30px;
+    padding-bottom: 5px;
     min-height: 70px;
-    border-bottom: #e8491d 3px solid;
 }
 
 header a {
     color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 50px;
 }
 
 header ul {
@@ -85,62 +85,33 @@ header a:hover {
 footer {
     padding: 20px;
     color: #ffffff;
-    background-color: #e8491d;
+    background-color: #975c34;
     text-align: center;
-}
-
-.flash {
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid transparent;
-    border-radius: 5px;
-}
-
-.success {
-    color: #155724;
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-}
-
-.error {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-}
-
-.flash-message {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.flash-message.info {
-    color: #0c5460;
-    background-color: #d1ecf1;
-    border-color: #bee5eb;
 }
 
 .cart-count {
-  position: absolute;
-  top: 160px;
-  right: 295px;
-  padding: 3px 7px;
+  padding: 1px 15px;
   border-radius: 50%;
   background-color: red;
   color: white;
-  font-size: 0.75em;
+}
+
+.search-container {
+  width: 100%; /* Full width of its parent */
+  max-width: 1200px; /* Limits the maximum width */
+  margin: 0 auto; /* Centers the container */
+  padding: 0 10%; /* Adds padding to the left and right */
+  box-sizing: border-box; /* Ensures padding is included in the width */
 }
 
 #searchBar {
-    width: 1500px; /* Makes the search bar full width of its container */
-    padding: 10px; /* Adds some space inside the search bar */
-    border-radius: 25px; /* Gives rounded corners to the search bar */
-    border: 1px solid #ccc; /* Optional: Adds a border to the search bar */
-    /* Additional optional styling */
-    box-sizing: border-box; /* Ensures padding doesn't affect the final width */
+  width: 80%; /* Adjusted width */
+  margin: 0 auto; /* Centers the search bar */
+  padding: 10px; /* Adjust padding to your preference */
+  border-radius: 25px; /* Rounded corners */
+  /* Add any other styles for the search bar */
 }
+
 
 /* HTML: <div class="loader"></div> */
 .loader {
@@ -168,6 +139,109 @@ footer {
   100%  {transform:scaleY(-1) rotate(-135deg)}
 }
 
+/* Show Cart Button */
+.show-cart-btn:hover {
+  position: auto;
+  border: none;
+  cursor: pointer;
+  /* Add any additional properties you wish */
+}
 
- 
- 
+/* Add to Cart Button */
+.add-to-cart-btn {
+  position: auto;
+  border: none;
+  cursor: pointer;
+  /* Add any additional properties you wish */
+}
+
+/* Login Button */
+.login-btn {
+  position: auto;
+  border: none;
+  cursor: pointer;
+  /* Add any additional properties you wish */
+}
+
+/* Logout Button */
+.logout-btn {
+  position: auto;
+  border: none;
+  cursor: pointer;
+  /* Add any additional properties you wish */
+}
+
+/* Home Button */
+.home-btn {
+  position: auto;
+  border: none;
+  cursor: pointer;
+  /* Add any additional properties you wish */
+}
+
+/* Register Button */
+.register-btn {
+  position: auto;
+  border: none;
+  cursor: pointer;
+  /* Add any additional properties you wish */
+}
+
+/* Search Button */
+.search-btn {
+  position: auto;
+  padding: 10px; /* Adds some space inside the search bar */
+  border-radius: 25px; /* Gives rounded corners to the search bar */
+  border: 1px solid #ccc; /* Optional: Adds a border to the search bar */
+  /* Additional optional styling */
+  box-sizing: border-box; /* Ensures padding doesn't affect the final width */
+}
+
+ /* Register Button*/
+.register-btn:hover {
+  background-color: #804d2c; /* Darker shade of green */
+  border-radius: 20px;
+}
+
+
+/* Add to Cart Button */
+.add-to-cart-btn:hover {
+  background-color: #d1d1d1; /* Darker shade of green */
+  border-radius: 20px;
+}
+
+/* Show Cart Button */
+.show-cart-btn:hover {
+  background-color: #804d2c; /* Darker shade of green */
+  border-radius: 20px;
+}
+
+/* Login Button */
+.login-btn:hover {
+  background-color: #804d2c; /* Darker shade of green */
+  border-radius: 20px;
+}
+
+/* Logout Button */
+.logout-btn:hover {
+  background-color: #804d2c; /* Darker shade of green */
+  border-radius: 20px;
+}
+
+/* Home Button */
+.home-btn:hover {
+  background-color: #804d2c; /* Darker shade of green */
+  border-radius: 20px;
+}
+
+/* Register Button */
+.register-btn:hover {
+  background-color: #804d2c; /* Darker shade of green */
+  border-radius: 20px;
+}
+
+/* Search Button */
+.search-btn:hover {
+  background-color: #804d2c; /* Darker shade of green */
+  border-radius: 20px;
+}
