@@ -35,13 +35,12 @@ def load_user(user_id):
 book_catalog = [
     {'id': 1, 'title': '1984', 'author': 'George Orwell', 'genre': 'Dystopian', 'price': '10.99', 'cover': 'https://i.postimg.cc/k4VBVNBd/1984.jpg'},
     {'id': 2, 'title': 'Anxious People', 'author': 'Fredrik Backman', 'genre': 'Fiction', 'price': '15.99', 'cover': 'https://i.postimg.cc/8zt5tXvS/anxious-people.jpg'},
-    {'id': 3, 'title': 'Enjoy Your Life', 'author': 'Dr. Muhammad Abd Al-Rahman Al-Arifi', 'genre': 'Self-help', 'price': '12.99', 'cover': 'https://i.postimg.cc/sgcBbDtb/enjoy-your-life.jpg'},
-    {'id': 4, 'title': 'Golden Words', 'author': 'Unknown', 'genre': 'Quotes', 'price': '8.99', 'cover': 'https://i.postimg.cc/4nRZxVhw/golden-words.jpg'},
+    {'id': 3, 'title': 'Enjoy Your Life', 'author': 'Dr. Muhammad Abd Al-Rahman', 'genre': 'Self-help', 'price': '12.99', 'cover': 'https://i.postimg.cc/sgcBbDtb/enjoy-your-life.jpg'},
+    {'id': 4, 'title': 'Golden Words', 'author': '  Abdul Malik Mujahid', 'genre': 'Quotes', 'price': '8.99', 'cover': 'https://i.postimg.cc/4nRZxVhw/golden-words.jpg'},
     {'id': 5, 'title': 'Great Expectations', 'author': 'Charles Dickens', 'genre': 'Classic', 'price': '7.99', 'cover': 'https://i.postimg.cc/y6MSZGmp/great-expectations.jpg'},
     {'id': 6, 'title': 'War and Peace', 'author': 'Leo Tolstoy', 'genre': 'Historical Fiction', 'price': '20.99', 'cover': 'https://i.postimg.cc/wBjtzYzM/war-and-peace.jpg'},
     {'id': 7, 'title': 'Gulliver’s Travels', 'author': 'Jonathan Swift', 'genre': 'Satire', 'price': '11.99', 'cover': 'https://i.postimg.cc/3NvYhnWd/gulliver-s-travels.jpg'},
-    {'id': 8, 'title': 'Hamlet', 'author': 'William Shakespeare', 'genre': 'Tragedy', 'price': '9.99', 'cover': 'https://i.postimg.cc/43ffc62S/hamlet.jpg'},
-    {'id': 9, 'title': 'Invisible Man', 'author': 'Ralph Ellison', 'genre': 'Fiction', 'price': '14.99', 'cover': 'https://i.postimg.cc/LX72Gr9c/king-lear.jpg'},
+    {'id': 9, 'title': 'Invisible Man', 'author': 'Ralph Ellison', 'genre': 'Fiction', 'price': '14.99', 'cover': 'https://i.postimg.cc/43ffc62S/invisible-man.jpg'},
     {'id': 10, 'title': 'King Lear', 'author': 'William Shakespeare', 'genre': 'Tragedy', 'price': '9.99', 'cover': 'https://i.postimg.cc/LX72Gr9c/king-lear.jpg'},
     {'id': 11, 'title': 'Pride and Prejudice', 'author': 'Jane Austen', 'genre': 'Classic', 'price': '12.99', 'cover': 'https://i.postimg.cc/Hs1Vxymf/pride-and-prejudice.jpg'},
 ]

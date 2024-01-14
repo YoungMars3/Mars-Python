@@ -1,18 +1,19 @@
 body {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: #ffffff; /* Fallback color */
+  background-image: linear-gradient(to bottom, #7dcceb, #e7e7e7); /* Gradient */
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-    width: 80%;
+    max-width: 80%;
     margin: auto;
-    overflow: hidden;
+    overflow:auto;
 }
 
 header {
-    background: #975c34;
+    background-image: linear-gradient(to top, #3990b3, #49d8cc); /* Gradient */
     color: white;
     padding-top: 30px;
     padding-bottom: 5px;
@@ -32,9 +33,8 @@ header ul {
 }
 
 header li {
-    float: left;
-    display: inline;
-    padding: 0 20px 0 20px;
+  display: inline;
+  padding: 0 20px 0 20px;
 }
 
 header #branding {
@@ -60,24 +60,33 @@ header a:hover {
     font-weight: bold;
 }
 
-.book {
-    border: 1px solid #e6e6e6;
-    background: #fff;
-    padding: 67px;
-    margin-bottom: 10px;
+.books {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* This will space out the book items evenly */
+  /* If you want to add some space around the entire grid, you can use padding here */
 }
+
+.book {
+  flex: 0 0 23%; /* Adjust this value if you have padding or margins that need to be accounted for */
+  margin: 1%; /* Provides space between the books. Adjust as needed */
+  /* Add additional styling for the book */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* This ensures the image inside .book doesn't overflow its container */
 
 .book img {
-    width: 100px;
-    float: left;
-    margin-right: 20px;
+  max-width: 100%;
+  height: 300px;
+  display: block;
 }
-
 .book h3 {
     margin: 0;
     padding: 0;
 }
 
+/*book words*/
 .book p {
     color: #555;
 }
@@ -85,163 +94,174 @@ header a:hover {
 footer {
     padding: 20px;
     color: #ffffff;
-    background-color: #975c34;
+    background-image: linear-gradient(to top, #3990b3, #49d8cc); /* Gradient */
     text-align: center;
 }
 
-.cart-count {
-  padding: 1px 15px;
-  border-radius: 50%;
-  background-color: red;
-  color: white;
+/* General reset for images within links to remove spacing */
+nav ul li a img {
+  display: block;
+}
+
+/* Style for navigation list */
+nav ul {
+  margin-left: 90px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start; /* Align items to the left */
+}
+
+
+/* Style for navigation items */
+nav ul li {
+  margin-left: 10px; /* Space between nav items */
+  position: relative; /* For absolute positioning of cart count */
+}
+
+/* Style for buttons */
+.home-btn, .logout-btn, .login-btn, .register-btn, .show-cart-btn {
+  width: 50px;
+  height: 50px;
+  right: 10px;
+  padding-bottom: 10px;
+}
+
+/* This is the new wrapper around the form */
+.search-area {
+  display: flex;
+  justify-content: center; /* This will center the search-container */
+  width: 100%; /* Ensures the container spans the full width */
 }
 
 .search-container {
-  width: 100%; /* Full width of its parent */
-  max-width: 1200px; /* Limits the maximum width */
-  margin: 0 auto; /* Centers the container */
-  padding: 0 10%; /* Adds padding to the left and right */
-  box-sizing: border-box; /* Ensures padding is included in the width */
+  display: flex; /* Aligns children (the input and button) in a row */
+  align-items: center; /* Vertically centers the children */
+  justify-content: space-between; /* This will place any extra space between the items */
+  width: 1500px; /* Adjust as needed */
+  max-width: 80%; /* Example percentage */
+  margin: 0 auto; /* Centers the search container */
 }
 
 #searchBar {
-  width: 80%; /* Adjusted width */
-  margin: 0 auto; /* Centers the search bar */
-  padding: 10px; /* Adjust padding to your preference */
-  border-radius: 25px; /* Rounded corners */
-  /* Add any other styles for the search bar */
+  flex-grow: 1; /* Allows the search bar to grow and fill the container */
+  margin-right: 10px; /* Adds some space between the search bar and button */
+  border-radius: 25px; /* Gives rounded corners to the search bar */
+  border: 1px solid #ccc; /* Optional: Adds a border to the search bar */
+  padding: 15px; /* Adds some space inside the search bar */
+  /* Add any additional styling for the search bar */
+}
+
+.search-btn {
+  white-space: nowrap; /* Prevents the text within the button from wrapping */
+  border-radius: 25px; /* Gives rounded corners to the search bar */
+  border: 1px solid #ccc; /* Optional: Adds a border to the search bar */
+  padding: 15px; /* Adds some space inside the search bar */
+  /* Add any additional styling for the search button */
+}
+
+/* Show Cart Button */
+.home-btn:hover, .logout-btn:hover, .login-btn:hover, .register-btn:hover, .show-cart-btn:hover {
+  background-color: #804d2c; /* Adjust the color as necessary */
+  border-radius: 20px;
+}
+
+/* Style for quantity buttons */
+.quantity-btn {
+  padding: 5px 10px;
+  margin: 0 5px;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.quantity-btn:hover {
+  background-color: #e2e2e2;
+}
+
+/* Style for remove button */
+.remove-btn {
+  padding: 5px 10px;
+  background-color: #ff4d4d; /* Red color for remove button */
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: #ff3333;
+}
+
+/* Style for checkout button */
+.checkout-btn {
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Green color for checkout button */
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.checkout-btn:hover {
+  background-color: #45a049;
+}
+
+/* You can add more styles for alignment, spacing, etc., as needed */
+
+/* Style for cart count badge */
+.cart-count {
+  position: absolute;
+  top: -8px; /* Adjust as needed */
+  right: 5px; /* Adjust as needed */
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem; /* Adjust font size as needed */
+  padding: 2px;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn:hover, .search-btn:hover {
+  background-color: #d1d1d1; /* Adjust the color as needed */
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  /* Adjust styles for smaller screens */
+  .container, .search-container {
+      width: 95%;
+      max-width: none;
+  }
+
+  /* You may also want to adjust font sizes, button sizes, etc. */
 }
 
 
 /* HTML: <div class="loader"></div> */
 .loader {
-  width: 50px;
-  aspect-ratio: 1;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  border: 8px solid #514b82;
-  animation:
-    l20-1 0.8s infinite linear alternate,
-    l20-2 1.6s infinite linear;
-}
-@keyframes l20-1{
-   0%    {clip-path: polygon(50% 50%,0       0,  50%   0%,  50%    0%, 50%    0%, 50%    0%, 50%    0% )}
-   12.5% {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100%   0%, 100%   0%, 100%   0% )}
-   25%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 100% 100%, 100% 100% )}
-   50%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
-   62.5% {clip-path: polygon(50% 50%,100%    0, 100%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
-   75%   {clip-path: polygon(50% 50%,100% 100%, 100% 100%,  100% 100%, 100% 100%, 50%  100%, 0%   100% )}
-   100%  {clip-path: polygon(50% 50%,50%  100%,  50% 100%,   50% 100%,  50% 100%, 50%  100%, 0%   100% )}
-}
-@keyframes l20-2{ 
-  0%    {transform:scaleY(1)  rotate(0deg)}
-  49.99%{transform:scaleY(1)  rotate(135deg)}
-  50%   {transform:scaleY(-1) rotate(0deg)}
-  100%  {transform:scaleY(-1) rotate(-135deg)}
+  display: inline-block;
+  border-top: 3px solid #FFF;
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
 }
 
-/* Show Cart Button */
-.show-cart-btn:hover {
-  position: auto;
-  border: none;
-  cursor: pointer;
-  /* Add any additional properties you wish */
-}
-
-/* Add to Cart Button */
-.add-to-cart-btn {
-  position: auto;
-  border: none;
-  cursor: pointer;
-  /* Add any additional properties you wish */
-}
-
-/* Login Button */
-.login-btn {
-  position: auto;
-  border: none;
-  cursor: pointer;
-  /* Add any additional properties you wish */
-}
-
-/* Logout Button */
-.logout-btn {
-  position: auto;
-  border: none;
-  cursor: pointer;
-  /* Add any additional properties you wish */
-}
-
-/* Home Button */
-.home-btn {
-  position: auto;
-  border: none;
-  cursor: pointer;
-  /* Add any additional properties you wish */
-}
-
-/* Register Button */
-.register-btn {
-  position: auto;
-  border: none;
-  cursor: pointer;
-  /* Add any additional properties you wish */
-}
-
-/* Search Button */
-.search-btn {
-  position: auto;
-  padding: 10px; /* Adds some space inside the search bar */
-  border-radius: 25px; /* Gives rounded corners to the search bar */
-  border: 1px solid #ccc; /* Optional: Adds a border to the search bar */
-  /* Additional optional styling */
-  box-sizing: border-box; /* Ensures padding doesn't affect the final width */
-}
-
- /* Register Button*/
-.register-btn:hover {
-  background-color: #804d2c; /* Darker shade of green */
-  border-radius: 20px;
-}
-
-
-/* Add to Cart Button */
-.add-to-cart-btn:hover {
-  background-color: #d1d1d1; /* Darker shade of green */
-  border-radius: 20px;
-}
-
-/* Show Cart Button */
-.show-cart-btn:hover {
-  background-color: #804d2c; /* Darker shade of green */
-  border-radius: 20px;
-}
-
-/* Login Button */
-.login-btn:hover {
-  background-color: #804d2c; /* Darker shade of green */
-  border-radius: 20px;
-}
-
-/* Logout Button */
-.logout-btn:hover {
-  background-color: #804d2c; /* Darker shade of green */
-  border-radius: 20px;
-}
-
-/* Home Button */
-.home-btn:hover {
-  background-color: #804d2c; /* Darker shade of green */
-  border-radius: 20px;
-}
-
-/* Register Button */
-.register-btn:hover {
-  background-color: #804d2c; /* Darker shade of green */
-  border-radius: 20px;
-}
-
-/* Search Button */
-.search-btn:hover {
-  background-color: #804d2c; /* Darker shade of green */
-  border-radius: 20px;
-}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 

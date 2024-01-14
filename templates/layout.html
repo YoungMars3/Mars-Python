@@ -11,34 +11,38 @@
     <header>
         <div class="container">
             <h1><a href="{{ url_for('index') }}">BookHeaven</a></h1>
+            <li class="welcome-text">Welcome, {{ current_user.email }}!</li>
             <nav>
                 <ul>
-                    <a href="{{ url_for('index') }}"><img src="https://as1.ftcdn.net/jpg/05/05/30/96/160_F_505309624_7mvvbPkpLyCWHhbsKkW9Dcnj2vqGfKgI.png" alt="Home" class="home-btn" style="width: 50px; height: 50px;"></a>
-                    
+                    <li><a href="{{ url_for('index') }}">
+                        <img src="https://as1.ftcdn.net/jpg/05/05/30/96/160_F_505309624_7mvvbPkpLyCWHhbsKkW9Dcnj2vqGfKgI.png" alt="Home" class="home-btn">
+                    </a></li>
                     {% if current_user.is_authenticated %}
-                      <a href="{{ url_for('logout') }}"><img src="https://as1.ftcdn.net/jpg/02/27/38/98/160_F_227389862_0enphNVuxfD3MAHVpKy4aasO3WX0H528.png" alt="Logout" class="logout-btn" style="width: 50px; height: 50px;"></a>
-                        <p>Welcome, {{ current_user.email }}!</p>
+                    <li><a href="{{ url_for('logout') }}">
+                        <img src="https://as1.ftcdn.net/jpg/02/27/38/98/160_F_227389862_0enphNVuxfD3MAHVpKy4aasO3WX0H528.png" alt="Logout" class="logout-btn">
+                    </a></li>
+
                     {% else %}
-                    <a href="{{ url_for('login') }}"><img src="https://as2.ftcdn.net/jpg/05/12/69/33/160_F_512693361_CdfvdWksxnTtPebMQOITDvn7Wd9uFQR5.png" alt="Login" class="login-btn" style="width: 50px; height: 50px;"></a>
-                        <a href="{{ url_for('register') }}"><img src="https://as2.ftcdn.net/jpg/05/75/21/29/160_F_575212987_2XUbFpjAVSgx457aHlbQW9XaosYkiwZz.png" alt="Register" class="register-btn" style="width: 50px; height: 50px;"></a>
-
+                    <li><a href="{{ url_for('login') }}">
+                        <img src="https://as2.ftcdn.net/jpg/05/12/69/33/160_F_512693361_CdfvdWksxnTtPebMQOITDvn7Wd9uFQR5.png" alt="Login" class="login-btn">
+                    </a></li>
+                    <li><a href="{{ url_for('register') }}">
+                        <img src="https://as2.ftcdn.net/jpg/05/75/21/29/160_F_575212987_2XUbFpjAVSgx457aHlbQW9XaosYkiwZz.png" alt="Register" class="register-btn">
+                    </a></li>
                     {% endif %}
-                    <a href="{{ url_for('show_cart') }}">
-                        <img src="https://as1.ftcdn.net/jpg/03/30/45/76/160_F_330457600_gd0dmD9akOHwzTQqbASXruDeggxHnxgJ.png" alt="Cart" class="show-cart-btn" style="width: 50px; height: 50px;">
+                    <li><a href="{{ url_for('show_cart') }}">
+                        <img src="https://as1.ftcdn.net/jpg/03/30/45/76/160_F_330457600_gd0dmD9akOHwzTQqbASXruDeggxHnxgJ.png" alt="Cart" class="show-cart-btn">
                         {% if session['cart'] %}
-                            <span class="cart-count">{{ session['cart']|length }}</span>
+                        <span class="cart-count">{{ session['cart']|length }}</span>
                         {% endif %}
-                    </a>
-                    
+                    </a></li>
                 </ul>
-                <form action="{{ url_for('search') }}" method="get">
-                <div class="search-container">
-                    <input type="text" id="searchBar" name="query" placeholder="Search for books...">
+                <div class="search-area">
+                    <form action="{{ url_for('search') }}" method="get" class="search-container">
+                        <input type="text" id="searchBar" name="query" placeholder="Search for books...">
+                        <button type="submit" class="search-btn">Search</button>
+                    </form>
                 </div>
-                
-                <button type="submit" class="search-btn">Search</button>
-                </form>
-
             </nav>
         </div>
     </header>
@@ -46,7 +50,7 @@
     {% with messages = get_flashed_messages(with_categories=true) %}
     <div class="container">
         {% for category, message in messages %}
-            <div class="alert alert-{{ category }}">{{ message }}</div>
+        <div class="alert alert-{{ category }}">{{ message }}</div>
         {% endfor %}
     </div>
     {% endwith %}
