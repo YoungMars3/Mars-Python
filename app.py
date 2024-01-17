@@ -29,22 +29,6 @@ class User(db.Model, UserMixin):
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-    
-
-# Book catalog with IDs added
-book_catalog = [
-    {'id': 1, 'title': '1984', 'author': 'George Orwell', 'genre': 'Dystopian', 'price': '10.99', 'cover': 'https://i.postimg.cc/k4VBVNBd/1984.jpg'},
-    {'id': 2, 'title': 'Anxious People', 'author': 'Fredrik Backman', 'genre': 'Fiction', 'price': '15.99', 'cover': 'https://i.postimg.cc/8zt5tXvS/anxious-people.jpg'},
-    {'id': 3, 'title': 'Enjoy Your Life', 'author': 'Dr. Muhammad Abd Al-Rahman', 'genre': 'Self-help', 'price': '12.99', 'cover': 'https://i.postimg.cc/sgcBbDtb/enjoy-your-life.jpg'},
-    {'id': 4, 'title': 'Golden Words', 'author': '  Abdul Malik Mujahid', 'genre': 'Quotes', 'price': '8.99', 'cover': 'https://i.postimg.cc/4nRZxVhw/golden-words.jpg'},
-    {'id': 5, 'title': 'Great Expectations', 'author': 'Charles Dickens', 'genre': 'Classic', 'price': '7.99', 'cover': 'https://i.postimg.cc/y6MSZGmp/great-expectations.jpg'},
-    {'id': 6, 'title': 'War and Peace', 'author': 'Leo Tolstoy', 'genre': 'Historical Fiction', 'price': '20.99', 'cover': 'https://i.postimg.cc/wBjtzYzM/war-and-peace.jpg'},
-    {'id': 7, 'title': 'Gulliver’s Travels', 'author': 'Jonathan Swift', 'genre': 'Satire', 'price': '11.99', 'cover': 'https://i.postimg.cc/3NvYhnWd/gulliver-s-travels.jpg'},
-    {'id': 9, 'title': 'Invisible Man', 'author': 'Ralph Ellison', 'genre': 'Fiction', 'price': '14.99', 'cover': 'https://i.postimg.cc/43ffc62S/invisible-man.jpg'},
-    {'id': 10, 'title': 'King Lear', 'author': 'William Shakespeare', 'genre': 'Tragedy', 'price': '9.99', 'cover': 'https://i.postimg.cc/LX72Gr9c/king-lear.jpg'},
-    {'id': 11, 'title': 'Pride and Prejudice', 'author': 'Jane Austen', 'genre': 'Classic', 'price': '12.99', 'cover': 'https://i.postimg.cc/Hs1Vxymf/pride-and-prejudice.jpg'},
-]
-
 def get_book_details(book_id):
     # Convert book_id to an integer for a consistent comparison
     book_id = int(book_id)
@@ -52,16 +36,31 @@ def get_book_details(book_id):
     book = next((book for book in book_catalog if book['id'] == book_id), None)
     return book
 
+# Book catalog with IDs added
+book_catalog = [
+    {'id': 1001, 'title': '1984', 'author': 'George Orwell', 'genre': 'Dystopian', 'price': '10.99', 'cover': 'https://i.postimg.cc/k4VBVNBd/1984.jpg'},
+    {'id': 1002, 'title': 'Anxious People', 'author': 'Fredrik Backman', 'genre': 'Fiction', 'price': '15.99', 'cover': 'https://i.postimg.cc/8zt5tXvS/anxious-people.jpg'},
+    {'id': 1003, 'title': 'Enjoy Your Life', 'author': 'Dr. Muhammad Abd Al-Rahman', 'genre': 'Self-help', 'price': '12.99', 'cover': 'https://i.postimg.cc/sgcBbDtb/enjoy-your-life.jpg'},
+    {'id': 1004, 'title': 'Golden Words', 'author': '  Abdul Malik Mujahid', 'genre': 'Quotes', 'price': '18.99', 'cover': 'https://i.postimg.cc/4nRZxVhw/golden-words.jpg'},
+    {'id': 1005, 'title': 'Great Expectations', 'author': 'Charles Dickens', 'genre': 'Classic', 'price': '17.99', 'cover': 'https://i.postimg.cc/y6MSZGmp/great-expectations.jpg'},
+    {'id': 1006, 'title': 'War and Peace', 'author': 'Leo Tolstoy', 'genre': 'Historical Fiction', 'price': '20.99', 'cover': 'https://i.postimg.cc/wBjtzYzM/war-and-peace.jpg'},
+    {'id': 1007, 'title': 'Gulliver’s Travels', 'author': 'Jonathan Swift', 'genre': 'Satire', 'price': '11.99', 'cover': 'https://i.postimg.cc/RhKhdM7s/gulliver-s-travels.jpg'},
+    {'id': 1008, 'title': 'Invisible Man', 'author': 'Ralph Ellison', 'genre': 'Fiction', 'price': '14.99', 'cover': 'https://i.postimg.cc/43ffc62S/invisible-man.jpg'},
+    {'id': 1009, 'title': 'King Lear', 'author': 'William Shakespeare', 'genre': 'Tragedy', 'price': '9.99', 'cover': 'https://i.postimg.cc/LX72Gr9c/king-lear.jpg'},
+    {'id': 1010, 'title': 'Pride and Prejudice', 'author': 'Jane Austen', 'genre': 'Classic', 'price': '12.99', 'cover': 'https://i.postimg.cc/Hs1Vxymf/pride-and-prejudice.jpg'},
+    {'id': 1012, 'title': 'Spare', 'author': 'Prince Harry', 'genre': 'memoir', 'price': '23.99', 'cover': 'https://i.postimg.cc/XvsVkrT7/spare.jpg'},
+    {'id': 1013, 'title': 'The Castle', 'author': 'F. Kafka', 'genre': 'Allegorical Novel', 'price': '23.99', 'cover': 'https://i.postimg.cc/FFdL1vLJ/the-castle.jpg'},
+    {'id': 1014, 'title': 'The Guest List', 'author': 'Lucy Foly]ey', 'genre': 'Psychological Thriller', 'price': '39.99', 'cover': 'https://i.postimg.cc/YqNjmCqj/the-guest-list.jpg'},
+    {'id': 1015, 'title': 'The Hobbit', 'author': 'J.R.R. Tolkien', 'genre': 'Fantasy', 'price': '51.99', 'cover': 'https://i.postimg.cc/tCFntzDq/the-hobbit.jpg'},
+    {'id': 1016, 'title': 'The Idiot', 'author': 'Author Name', 'genre': 'Genre', 'price': 'Price', 'cover': 'https://i.postimg.cc/xCb1j04f/the-idiot.jpg'},
+    {'id': 1017, 'title': 'The Invisible Life of Addie LaRue', 'author': 'V.E. Schwab', 'genre': 'Fantasy', 'price': '13.99', 'cover': 'https://i.postimg.cc/7ZDGBTQg/the-invisible-life-of-addie-larue.jpg'},
+]
+
 
 @app.route('/')
 def index():
     return render_template('index.html', books=book_catalog, current_user=current_user)
 
-
-# Home route
-#@app.route('/')
-#def index():
-#    return render_template('index.html', books=book_catalog)
 
 # Search route
 @app.route('/search', methods=['GET'])
@@ -71,8 +70,7 @@ def search():
     return render_template('search.html', query=query, results=results)
 
 # Add to cart route
-# Add to cart route
-@app.route('/add_to_cart/<int:book_id>')
+@app.route('/add_to_cart/<int:book_id>', methods=['GET', 'POST'])
 def add_to_cart(book_id):
     if 'cart' not in session:
         session['cart'] = {}
@@ -85,8 +83,7 @@ def add_to_cart(book_id):
     # Redirect to the referrer page; if it's None, redirect to index
     return redirect(request.referrer or url_for('index'))
 
-#Remove from cart route
-@app.route('/remove_from_cart/<int:book_id>')
+@app.route('/remove_from_cart/<int:book_id>', methods=['POST'])
 def remove_from_cart(book_id):
     cart = session.get('cart', {})
     cart.pop(str(book_id), None)  # Use string keys
@@ -94,7 +91,7 @@ def remove_from_cart(book_id):
     session.modified = True
     return redirect(url_for('show_cart'))
 
-@app.route('/remove_one_from_cart/<int:book_id>')
+@app.route('/remove_one_from_cart/<int:book_id>', methods=['POST'])
 def remove_one_from_cart(book_id):
     cart = session.get('cart', {})
     book_id_str = str(book_id)  # Convert book ID to string
@@ -110,9 +107,16 @@ def remove_one_from_cart(book_id):
 @app.route('/cart')
 def show_cart():
     cart_book_ids = session.get('cart', {})
-    cart_books = {book_id: {'details': get_book_details(book_id), 'quantity': quantity}
-                  for book_id, quantity in cart_book_ids.items()}
+    cart_books = {}
+    for book_id, quantity in cart_book_ids.items():
+        book_details = get_book_details(book_id)
+        if book_details is not None:
+            cart_books[book_id] = {'details': book_details, 'quantity': quantity}
+            print(f"Book ID: {book_id}, Details: {book_details}, Quantity: {quantity}")  # Debugging line
+        else:
+            print(f"Book details not found for ID: {book_id}")  # Error handling
     return render_template('cart.html', cart=cart_books)
+
 
 
 # Registration route
@@ -157,7 +161,6 @@ def logout():
     flash('You have successfully logged out.', 'info')
     return redirect(url_for('index'))
 
-
 # Purchase route
 @app.route('/purchase', methods=['POST'])
 @login_required
@@ -167,11 +170,15 @@ def purchase():
     session.pop('cart', None)  # Clear the cart
     return redirect(url_for('index'))
 
-@app.route('/checkout')
-@login_required  # Assuming the user must be logged in to checkout
+@app.route('/checkout', methods=['GET', 'POST'])
+@login_required
 def checkout():
-    # You can include any other information needed for the checkout process here
+    if request.method == 'POST':
+        # Handle the checkout logic here
+        return redirect(url_for('checkout'))
+    # For a GET request, just render the checkout page
     return render_template('checkout.html')
+
 
 @app.route('/process_payment', methods=['POST'])
 @login_required
@@ -186,14 +193,6 @@ def process_payment():
 
     # Instead of redirecting immediately, render the payment_success template
     return render_template('payment_success.html')
-
-
-    # If payment is successful:
-    flash('Payment successful!', 'success')
-    # Clear the cart here if payment is successful
-    session.pop('cart', None)
-    # Redirect to a confirmation page or back to the cart
-    return redirect(url_for('index'))  # Change 'index' to your confirmation route if you have one
 
 
 if __name__ == '__main__':

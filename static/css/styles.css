@@ -92,6 +92,7 @@ header a:hover {
 }
 
 footer {
+
     padding: 20px;
     color: #ffffff;
     background-image: linear-gradient(to top, #3990b3, #49d8cc); /* Gradient */
@@ -123,7 +124,8 @@ nav ul li {
 .home-btn, .logout-btn, .login-btn, .register-btn, .show-cart-btn {
   width: 50px;
   height: 50px;
-  right: 10px;
+  right: 8px;
+  padding-top: 10px;
   padding-bottom: 10px;
 }
 
@@ -149,7 +151,6 @@ nav ul li {
   border-radius: 25px; /* Gives rounded corners to the search bar */
   border: 1px solid #ccc; /* Optional: Adds a border to the search bar */
   padding: 15px; /* Adds some space inside the search bar */
-  /* Add any additional styling for the search bar */
 }
 
 .search-btn {
@@ -157,14 +158,25 @@ nav ul li {
   border-radius: 25px; /* Gives rounded corners to the search bar */
   border: 1px solid #ccc; /* Optional: Adds a border to the search bar */
   padding: 15px; /* Adds some space inside the search bar */
-  /* Add any additional styling for the search button */
+
 }
 
 /* Show Cart Button */
 .home-btn:hover, .logout-btn:hover, .login-btn:hover, .register-btn:hover, .show-cart-btn:hover {
-  background-color: #804d2c; /* Adjust the color as necessary */
+  background-color: #4198ba; /* Adjust the color as necessary */
   border-radius: 20px;
 }
+
+.cart-buttons {
+  display: flex;
+  align-items: center; /* Align vertically */
+}
+.add-to-cart-buttons {
+  display: flex;
+  align-items: center; /* Align vertically */
+}
+
+
 
 /* Style for quantity buttons */
 .quantity-btn {
@@ -196,6 +208,8 @@ nav ul li {
 
 /* Style for checkout button */
 .checkout-btn {
+  margin-top: 50px;
+  margin-bottom: 50px;
   padding: 10px 20px;
   background-color: #4CAF50; /* Green color for checkout button */
   border: none;
@@ -209,7 +223,6 @@ nav ul li {
   background-color: #45a049;
 }
 
-/* You can add more styles for alignment, spacing, etc., as needed */
 
 /* Style for cart count badge */
 .cart-count {
@@ -228,11 +241,14 @@ nav ul li {
   padding: 2px;
 }
 
-/* Add to Cart Button */
-.add-to-cart-btn:hover, .search-btn:hover {
+.search-btn:hover {
   background-color: #d1d1d1; /* Adjust the color as needed */
-  border-radius: 20px;
+
 }
+.add-to-cart-btn:hover {
+  background-color: #7dcceb; /* Adjust the color as needed */
+  border-radius: 20px;
+} 
 
 @media (max-width: 768px) {
   /* Adjust styles for smaller screens */
@@ -245,23 +261,36 @@ nav ul li {
 }
 
 
-/* HTML: <div class="loader"></div> */
+.spinner-container {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex; /* Using flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 1000; /* High z-index to ensure it's above other content */
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
 .loader {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  display: inline-block;
   border-top: 3px solid #FFF;
   border-right: 3px solid transparent;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
+  /* No need for margin or flex properties here */
 }
 
 @keyframes rotation {
   0% {
-    transform: rotate(0deg);
+      transform: rotate(0deg);
   }
   100% {
-    transform: rotate(360deg);
+      transform: rotate(360deg);
   }
-} 
+}
+

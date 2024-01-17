@@ -15,21 +15,27 @@
                     <p>Genre: {{ book_info.details.genre }}</p>
                     <p>Quantity: {{ book_info.quantity }}</p>
                     <div class="cart-buttons">
-                        <!-- Update the href to action if these buttons are part of a form -->
+                        <!-- Increase quantity -->
                         <form method="post" action="{{ url_for('add_to_cart', book_id=book_id) }}">
-                            <button type="submit" name="change" value="increase">+</button>
-                            {% if book_info.quantity > 1 %}
-                                <button type="submit" name="change" value="decrease">-</button>
-                            {% endif %}
-                            <button type="submit" name="change" value="remove">Remove</button>
+                            <button type="submit" class=quantity-btn>+</button>
+                        </form>
+                        <!-- Decrease quantity -->
+                        {% if book_info.quantity > 1 %}
+                        <form method="post" action="{{ url_for('remove_one_from_cart', book_id=book_id) }}">
+                            <button type="submit" class=quantity-btn>-</button>
+                        </form>
+                        {% endif %}
+                        <!-- Remove item -->
+                        <form method="post" action="{{ url_for('remove_from_cart', book_id=book_id) }}">
+                            <button type="submit" class="remove-btn">Remove</button>
                         </form>
                     </div>
                 </div>
             {% endfor %}
         </div>
-        <!-- Convert this to a button inside a form to submit the checkout action -->
+        <!-- Checkout button -->
         <form method="post" action="{{ url_for('checkout') }}">
-            <button type="submit" class="btn btn-primary">Proceed to Checkout</button>
+            <button type="submit" class="checkout-btn">Proceed to Checkout</button>
         </form>
     {% else %}
         <p>Your cart is empty.</p>

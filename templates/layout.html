@@ -11,7 +11,9 @@
     <header>
         <div class="container">
             <h1><a href="{{ url_for('index') }}">BookHeaven</a></h1>
-            <li class="welcome-text">Welcome, {{ current_user.email }}!</li>
+            {% if current_user.is_authenticated %}
+            <div class="welcome-text">Welcome, {{ current_user.email }}!</div>
+            {% endif %}
             <nav>
                 <ul>
                     <li><a href="{{ url_for('index') }}">
