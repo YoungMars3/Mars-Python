@@ -1,29 +1,43 @@
+# Import necessary modules from flask
 from flask import Flask, render_template, request, redirect, url_for, session, flash
+# Import necessary modules from flask_login to manage user sessions
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+# Import necessary modules from werkzeug to handle password hashing and checking
 from werkzeug.security import generate_password_hash, check_password_hash
+# Import SQLAlchemy to handle database
 from flask_sqlalchemy import SQLAlchemy
 
+# Initialize the Flask application
 app = Flask(__name__)
+# Configure the database URI for SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydatabase.db'
+# Configure the secret key for the Flask application (used for sessions, form csrf protection, etc.)
 app.config['SECRET_KEY'] = 'your_secret_key'
+# Configure SQLAlchemy to stop tracking modifications on SQLAlchemy models. This saves system resources.
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+# Initialize SQLAlchemy with the Flask application
 db = SQLAlchemy(app)
 
+# Initialize LoginManager which will handle user sessions
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-# Define the User model
+# Define the User model for SQLAlchemy. This will create a table named 'user' in the database.
 class User(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(100), unique=True, nullable=False)
-    password_hash = db.Column(db.String(200), nullable=False)
+    # Define the columns for the 'user' table
+    id = db.Column(db.Integer, primary_key=True)  # Primary key
+    email = db.Column(db.String(100), unique=True, nullable=False)  # Email column (unique and can't be null)
+    password_hash = db.Column(db.String(200), nullable=False)  # Password hash column (can't be null)
 
+    # Function to hash a password and set it to the user
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 
+    # Function to check if a password matches the hashed password of the user
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+
 
 @login_manager.user_loader
 def load_user(user_id):
