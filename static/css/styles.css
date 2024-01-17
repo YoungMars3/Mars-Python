@@ -138,7 +138,7 @@ nav ul li {
   display: flex; /* Aligns children (the input and button) in a row */
   align-items: center; /* Vertically centers the children */
   justify-content: space-between; /* This will place any extra space between the items */
-  width: 1500px; /* Adjust as needed */
+  width: 1300px; /* Adjust as needed */
   max-width: 80%; /* Example percentage */
   margin: 0 auto; /* Centers the search container */
 }
